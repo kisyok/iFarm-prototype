@@ -89,7 +89,9 @@ import {mapActions, mapState} from 'vuex'
       ],
       account: [
         { text: 'Profile', icon: 'mdi-account', color: 'textColor' },
-        { text: 'Tasks', icon: 'mdi-thumb-up', color: 'textColor'  }
+        { text: 'Tasks', icon: 'mdi-thumb-up', color: 'textColor'  },
+        { text: 'Subscription', icon: 'mdi-cart-outline', color: 'textColor'  },
+        { text: 'Settings', icon: 'mdi-cog-outline', color: 'textColor'  }
       ],
       notificationsBadge: true,
       messageBadge: true

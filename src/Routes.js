@@ -5,7 +5,6 @@ import Layout from '@/components/Layout/Layout';
 
 // Pages
 import Dashboard from '@/pages/Dashboard/Dashboard';
-import Typography from '@/pages/Typography/Typography'
 import Tables from '@/pages/Tables/Basic'
 import Notifications from '@/pages/Notifications/Notifications'
 import Icons from '@/pages/Icons/Icons'
@@ -13,6 +12,7 @@ import Charts from '@/pages/Charts/Charts'
 import Maps from '@/pages/Maps/Google'
 import Error from "@/pages/Error/Error";
 import Login from "@/pages/Login/Login";
+import Activities from '@/pages/Prototypes/Activities'
 
 Vue.use(Router);
 
@@ -35,9 +35,9 @@ export default new Router({
         component: Dashboard,
       },
       {
-        path: 'typography',
-        name: 'Typography',
-        component: Typography,
+        path: 'activities',
+        name: 'Activities',
+        component: Activities,
       },
       {
         path: 'tables',

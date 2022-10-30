@@ -34,8 +34,8 @@
             </v-btn>
         </template>
         <v-list >
-          <div class="text-h5 grey--text text--darken-3 px-4 pt-4">John Smith</div>
-          <div class="subtitle-2 primary--text font-weight-regular px-4">Flatlogic.com</div>
+          <div class="text-h5 grey--text text--darken-3 px-4 pt-4 text-center mb-2">Rahman</div>
+          <v-divider></v-divider>
           <v-list-item-group color="primary">
             <v-list-item
               v-for="(item, i) in account"
@@ -89,8 +89,7 @@ import {mapActions, mapState} from 'vuex'
       ],
       account: [
         { text: 'Profile', icon: 'mdi-account', color: 'textColor' },
-        { text: 'Tasks', icon: 'mdi-thumb-up', color: 'textColor'  },
-        { text: 'Messages', icon: 'mdi-flag', color: 'textColor'  }
+        { text: 'Tasks', icon: 'mdi-thumb-up', color: 'textColor'  }
       ],
       notificationsBadge: true,
       messageBadge: true

@@ -10,9 +10,7 @@
     :mini-variant-width="sidebarMinWidth"
     :class="{'drawer-mini': !DRAWER_STATE}">
 
-    <div class="v-list">
-      <a class="v-list-item v-list-item--link grey--text text-sm-h6" target="_blank" href="https://flatlogic.com/generator">Generate App</a>
-    </div>
+  
 
     <v-list>
       <template v-for="(item, i) in items">
@@ -108,31 +106,15 @@ import {mapActions, mapState} from 'vuex'
       return {
         items: [
           { title: 'Dashboard', icon: 'mdi-home', link: '/dashboard' },
-          { title: 'Typography', icon: 'mdi-format-size', link: '/typography' },
-          { title: 'Tables', icon: 'mdi-grid-large', link: '/tables' },
-          { title: 'Notifications', icon: 'mdi-bell-outline', link: '/notifications' },
-          {
-            title: 'UI Elements',
-            icon: 'mdi-image-filter-none',
-            link: '/icons',
-            model: false,
-            children: [
-              { title: 'Icons', icon: 'mdi-circle-small', link: '/icons'},
-              { title: 'Charts', icon: 'mdi-circle-small', link: '/charts'},
-              { title: 'Maps', icon: 'mdi-circle-small', link: '/maps'},
-            ],
-          },
+          { title: 'Activities', icon: 'mdi-format-size', link: '/activities' },
+          { title: 'Planned Tasks', icon: 'mdi-format-list-checks', link: '/tables' },
+          { title: 'Statistics', icon: 'mdi-chart-bell-curve-cumulative', link: '/notifications' },
+          { title: 'Subscription', icon: 'mdi-bell-outline', link: '/notifications' },
           { divider: true },
-          { heading: 'HELP' },
-          { title: 'Library', icon: 'mdi-book-variant-multiple', href: 'https://flatlogic.com/templates'},
+          { heading: 'Settings' },
+          { title: 'Profile', icon: 'mdi-account', href: 'https://flatlogic.com/templates'},
           { title: 'Support', icon: 'mdi-forum', href: 'https://flatlogic.com/forum/'},
           { title: 'FAQ', icon: 'mdi-help-circle-outline', href:'https://flatlogic.com/templates/vue-material-template'},
-          { divider: true },
-          { heading: 'PROJECTS' },
-          { title: 'My recent', icon: 'mdi-circle-medium', color: 'warning'},
-          { title: 'Starred', icon: 'mdi-circle-medium', color: 'primary'},
-          { title: 'Background', icon: 'mdi-circle-medium', color: 'error'}
-
         ],
         sidebarWidth: 240,
         sidebarMinWidth: 96

@@ -12,11 +12,17 @@ import Charts from '@/pages/Charts/Charts'
 import Maps from '@/pages/Maps/Google'
 import Error from "@/pages/Error/Error";
 import Login from "@/pages/Login/Login";
-import Activities from '@/pages/Prototypes/Activities'
+import Aerating from '@/pages/Prototypes/Aerating'
+import Sowing from '@/pages/Prototypes/Sowing'
+import Fertilizing from '@/pages/Prototypes/Fertilizing'
+import Harvest from '@/pages/Prototypes/Harvest'
+import Others from '@/pages/Prototypes/Others'
 
 Vue.use(Router);
 
 export default new Router({
+  mode: "history",
+  base: process.env.BASE_URL,
   routes: [
     {
       path: '/login',
@@ -35,9 +41,29 @@ export default new Router({
         component: Dashboard,
       },
       {
-        path: 'activities',
-        name: 'Activities',
-        component: Activities,
+        path: 'activities/aerating',
+        name: 'Aerating',
+        component: Aerating,
+      },
+      {
+        path: 'activities/sowing',
+        name: 'Sowing',
+        component: Sowing,
+      },
+      {
+        path: 'activities/fertilizing',
+        name: 'Fertilizing',
+        component: Fertilizing,
+      },
+      {
+        path: 'activities/harvest',
+        name: 'Harvest',
+        component: Harvest,
+      },
+      {
+        path: 'activities/others',
+        name: 'Others',
+        component: Others,
       },
       {
         path: 'tables',

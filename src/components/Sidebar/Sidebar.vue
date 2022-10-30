@@ -8,28 +8,21 @@
     :permanent="$vuetify.breakpoint.mdAndUp"
     :temporary="$vuetify.breakpoint.smAndDown"
     :mini-variant-width="sidebarMinWidth"
-    :class="{'drawer-mini': !DRAWER_STATE}">
-
-  
-
+    :class="{ 'drawer-mini': !DRAWER_STATE }"
+  >
     <v-list>
       <template v-for="(item, i) in items">
-        <v-row
-          v-if="item.heading"
-          :key="item.heading"
-          align="center">
+        <v-row v-if="item.heading" :key="item.heading" align="center">
           <v-col cols="6" class="py-5">
             <span
               style="padding-left: 32px"
               class="text-body-1 subheader"
-              :class="(item.heading && DRAWER_STATE) ? 'show ' : 'hide'">
+              :class="item.heading && DRAWER_STATE ? 'show ' : 'hide'"
+            >
               {{ item.heading }}
-              </span>
+            </span>
           </v-col>
-          <v-col
-            cols="6"
-            class="text-center">
-          </v-col>
+          <v-col cols="6" class="text-center"> </v-col>
         </v-row>
         <v-divider
           v-else-if="item.divider"
@@ -42,32 +35,33 @@
           v-else-if="item.children && DRAWER_STATE"
           :key="item.title"
           v-model="item.model"
-          append-icon="">
-            <template v-slot:prependIcon>
-              <v-icon size="28">mdi-image-filter-none</v-icon>
-            </template>
-            <template v-slot:activator >
-              <v-list-item-content >
-                <v-list-item-title
-                  class="grey--text">
-                    {{ item.title }}
-                </v-list-item-title>
-              </v-list-item-content>
-            </template>
-            <v-list-item
-              v-for="(child, i) in item.children"
-              :key="i"
-              :to="child.link"
-              link>
-                <v-list-item-action v-if="child.icon">
-                  <v-icon size="">{{ child.icon }}</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title class="grey--text">
-                    {{ child.title }}
-                  </v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
+          append-icon=""
+        >
+          <template v-slot:prependIcon>
+            <v-icon size="28">mdi-image-filter-none</v-icon>
+          </template>
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title class="grey--text">
+                {{ item.title }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item
+            v-for="(child, i) in item.children"
+            :key="i"
+            :to="child.link"
+            link
+          >
+            <v-list-item-action v-if="child.icon">
+              <v-icon size="">{{ child.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title class="grey--text">
+                {{ child.title }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list-group>
         <v-list-item
           color="primary"
@@ -75,67 +69,120 @@
           :key="item.text"
           :href="item.href ? item.href : null"
           :to="item.link === '#' ? null : item.link"
-          link>
+          link
+        >
           <v-list-item-action>
-            <v-icon
-              size="28"
-              :color="item.color ? item.color : ''"
-            >{{ item.icon }}</v-icon>
+            <v-icon size="28" :color="item.color ? item.color : ''">{{
+              item.icon
+            }}</v-icon>
           </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title
-                class="grey--text"
-                link>
-                {{ item.title }}
-              </v-list-item-title>
-            </v-list-item-content>
+          <v-list-item-content>
+            <v-list-item-title class="grey--text" link>
+              {{ item.title }}
+            </v-list-item-title>
+          </v-list-item-content>
         </v-list-item>
       </template>
     </v-list>
-    </v-navigation-drawer>
+  </v-navigation-drawer>
 </template>
 
 <script>
-import {mapActions, mapState} from 'vuex'
+import { mapActions, mapState } from "vuex";
 
-  export default {
-    props: {
-        source: String,
-    },
-    data(){
-      return {
-        items: [
-          { title: 'Dashboard', icon: 'mdi-home', link: '/dashboard' },
-          { title: 'Activities', icon: 'mdi-format-size', link: '/activities' },
-          { title: 'Planned Tasks', icon: 'mdi-format-list-checks', link: '/tables' },
-          { title: 'Statistics', icon: 'mdi-chart-bell-curve-cumulative', link: '/notifications' },
-          { title: 'Subscription', icon: 'mdi-bell-outline', link: '/notifications' },
-          { divider: true },
-          { heading: 'Settings' },
-          { title: 'Profile', icon: 'mdi-account', href: 'https://flatlogic.com/templates'},
-          { title: 'Support', icon: 'mdi-forum', href: 'https://flatlogic.com/forum/'},
-          { title: 'FAQ', icon: 'mdi-help-circle-outline', href:'https://flatlogic.com/templates/vue-material-template'},
-        ],
-        sidebarWidth: 240,
-        sidebarMinWidth: 96
-      }
-    },
-    computed: {
-      ...mapState(['drawer']),
-      DRAWER_STATE: {
-        get() {
-          return this.drawer
+export default {
+  props: {
+    source: String,
+  },
+  data() {
+    return {
+      items: [
+        { title: "Dashboard", icon: "mdi-home", link: "/dashboard" },
+        {
+          title: "Activities",
+          icon: "mdi-format-size",
+          model: false,
+          children: [
+            {
+              title: "Aerating",
+              icon: "mdi-air-filter",
+              link: 'aerating',
+            },
+            {
+              title: "Sowing",
+              icon: "mdi-calendar-month",
+              link: 'sowing',
+            },
+            {
+              title: "Fertilizing",
+              icon: "mdi-format-list-text",
+              link: 'fertilizing',
+            },
+            {
+              title: "Harvest",
+              icon: "mdi-calendar-month",
+              link: 'harvest',
+            },
+            {
+              title: "Others",
+              icon: "mdi-calendar-month",
+              link: 'others',
+            },
+          ],
         },
-        set(newValue) {
-          if (newValue === this.drawer) return;
-          this.TOGGLE_DRAWER();
-        }
-      }
+        {
+          title: "Planned Tasks",
+          icon: "mdi-format-list-checks",
+          link: "/tables",
+        },
+        {
+          title: "Statistics",
+          icon: "mdi-chart-bell-curve-cumulative",
+          link: "/notifications",
+        },
+        {
+          title: "Subscription",
+          icon: "mdi-bell-outline",
+          link: "/notifications",
+        },
+        { divider: true },
+        { heading: "Settings" },
+        {
+          title: "Profile",
+          icon: "mdi-account",
+          href: "https://flatlogic.com/templates",
+        },
+        {
+          title: "Support",
+          icon: "mdi-forum",
+          href: "https://flatlogic.com/forum/",
+        },
+        {
+          title: "FAQ",
+          icon: "mdi-help-circle-outline",
+          href: "https://flatlogic.com/templates/vue-material-template",
+        },
+      ],
+      sidebarWidth: 240,
+      sidebarMinWidth: 96,
+    };
+  },
+  computed: {
+    ...mapState(["drawer"]),
+    DRAWER_STATE: {
+      get() {
+        return this.drawer;
+      },
+      set(newValue) {
+        if (newValue === this.drawer) return;
+        this.TOGGLE_DRAWER();
+      },
     },
-    methods: {
-      ...mapActions([ 'TOGGLE_DRAWER' ]),
-    }
-  }
+  },
+  methods: {
+    ...mapActions(["TOGGLE_DRAWER"]),
+  },
+};
 </script>
 
-<style src="./Sidebar.scss" lang="scss"/>
+<style src="./Sidebar.scss" lang="scss" />

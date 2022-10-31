@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{numOfRow}}
     <v-card class="my-3">
       <v-card-title>
         Aerating

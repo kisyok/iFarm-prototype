@@ -119,4 +119,10 @@
   }
 }
 
+.theme--light.v-data-table > .v-data-table__wrapper > table > thead > tr:last-child > th {
+  background-color: #efffb7 !important;
+}
 
+.v-card__title {
+  background-color: #d6ec78 !important;
+}

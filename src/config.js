@@ -2,7 +2,7 @@ export default {
     light: {
       primary: "#7CB342",
       secondary: "#FF5C93",
-      error: "#FF4081",
+      error: "#EF5350",
       warning: "#FFC260",
       success: "#3CD4A0",
       info: "#9013FE",

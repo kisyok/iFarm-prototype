@@ -106,27 +106,27 @@ export default {
             {
               title: "Aerating",
               icon: "mdi-rake",
-              link: 'activities/aerating',
+              link: 'aerating',
             },
             {
               title: "Sowing",
               icon: "mdi-seed",
-              link: 'activities/sowing',
+              link: 'sowing',
             },
             {
               title: "Fertilizing",
               icon: "mdi-diving-scuba-tank",
-              link: 'activities/fertilizing',
+              link: 'fertilizing',
             },
             {
               title: "Harvest",
               icon: "mdi-fruit-cherries",
-              link: 'activities/harvest',
+              link: 'harvest',
             },
             {
               title: "Others",
               icon: "mdi-dots-horizontal",
-              link: 'activities/others',
+              link: 'others',
             },
           ],
         },

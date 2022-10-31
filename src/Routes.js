@@ -21,8 +21,6 @@ import Others from '@/pages/Prototypes/Others'
 Vue.use(Router);
 
 export default new Router({
-  mode: "history",
-  base: process.env.BASE_URL,
   routes: [
     {
       path: '/login',
@@ -41,27 +39,27 @@ export default new Router({
         component: Dashboard,
       },
       {
-        path: 'activities/aerating',
+        path: 'aerating',
         name: 'Aerating',
         component: Aerating,
       },
       {
-        path: 'activities/sowing',
+        path: 'sowing',
         name: 'Sowing',
         component: Sowing,
       },
       {
-        path: 'activities/fertilizing',
+        path: 'fertilizing',
         name: 'Fertilizing',
         component: Fertilizing,
       },
       {
-        path: 'activities/harvest',
+        path: 'harvest',
         name: 'Harvest',
         component: Harvest,
       },
       {
-        path: 'activities/others',
+        path: 'others',
         name: 'Others',
         component: Others,
       },

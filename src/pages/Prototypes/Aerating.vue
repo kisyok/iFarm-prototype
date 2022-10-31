@@ -11,25 +11,13 @@
           v-if="selected.length !== 0"
         >
           Delete Selected Rows
-          <v-icon
-            dark
-            right
-          >
-            mdi-delete
-          </v-icon>
-          </v-btn
-        >
+          <v-icon dark right> mdi-delete </v-icon>
+        </v-btn>
         <v-spacer></v-spacer>
         <v-btn large color="primary" @click="openForm()">
           Add New Activity
-          <v-icon
-            dark
-            right
-          >
-            mdi-plus
-          </v-icon>
-          </v-btn
-        >
+          <v-icon dark right> mdi-plus </v-icon>
+        </v-btn>
         <v-spacer></v-spacer>
         <v-text-field
           v-model="search"
@@ -44,7 +32,7 @@
         :headers="headersItems"
         :items="listItems"
         :search="search"
-        :items-per-page="10"
+        :items-per-page="5"
         item-key="id"
         multi-sort
         show-select
@@ -55,16 +43,71 @@
           lastIcon: 'mdi-arrow-collapse-right',
           prevIcon: 'mdi-minus',
           nextIcon: 'mdi-plus',
-          itemsPerPageOptions: [10, 20, -1],
+          itemsPerPageOptions: [5, 10, 20, -1],
         }"
       >
         <template v-slot:[`item.actions`]="{ item }">
-          <v-icon small class="mr-2" @click="editItem(item)">
+          <v-icon
+            small
+            class="mr-2"
+            @click="
+              itemInEdit = item;
+              editDialog = true;
+            "
+          >
             mdi-pencil
           </v-icon>
         </template>
       </v-data-table>
     </v-card>
+
+    <!-- edit dialog -->
+    <v-dialog v-model="editDialog">
+      <v-card>
+        <v-toolbar flat color="primary" dark class="d-flex justify-center">
+          <v-toolbar-title>Edit Activity</v-toolbar-title>
+        </v-toolbar>
+        <v-card-text>
+          <v-container>
+            <v-form ref="editForm">
+              <v-row align="center" class="mt-2">
+                <v-col cols="12" sm="4">
+                  <v-text-field
+                    v-model="itemInEdit.date"
+                    label="Date"
+                    prepend-icon="mdi-calendar-blank"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="4">
+                  <v-text-field
+                    v-model="itemInEdit.field"
+                    label="Field Number"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="4">
+                  <v-text-field
+                    v-model="itemInEdit.row"
+                    label="Row Number"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+            </v-form>
+          </v-container>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn color="blue darken-1" text @click="editDialog = false">
+            Cancel
+          </v-btn>
+
+          <v-btn color="blue darken-1" text @click="editDialog = false">
+            Save
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -129,6 +172,8 @@ export default {
         },
       ],
       search: "",
+      editDialog: false,
+      itemInEdit: null,
     };
   },
   methods: {

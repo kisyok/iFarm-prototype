@@ -7,7 +7,7 @@ export default {
       success: "#3CD4A0",
       info: "#9013FE",
       textColor: "#B9B9B9",
-      iconColor: "#FFFFFF59",
+      iconColor: "rgba(255, 255, 255, 0.9)",
       grayBold: '#4a4a4a'
   }
 };

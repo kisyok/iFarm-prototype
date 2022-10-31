@@ -100,33 +100,33 @@ export default {
         { title: "Dashboard", icon: "mdi-home", link: "/dashboard" },
         {
           title: "Activities",
-          icon: "mdi-format-size",
+          icon: "mdi-weather-sunny",
           model: false,
           children: [
             {
               title: "Aerating",
-              icon: "mdi-air-filter",
-              link: 'aerating',
+              icon: "mdi-rake",
+              link: 'activities/aerating',
             },
             {
               title: "Sowing",
               icon: "mdi-seed",
-              link: 'sowing',
+              link: 'activities/sowing',
             },
             {
               title: "Fertilizing",
               icon: "mdi-diving-scuba-tank",
-              link: 'fertilizing',
+              link: 'activities/fertilizing',
             },
             {
               title: "Harvest",
               icon: "mdi-fruit-cherries",
-              link: 'harvest',
+              link: 'activities/harvest',
             },
             {
               title: "Others",
               icon: "mdi-dots-horizontal",
-              link: 'others',
+              link: 'activities/others',
             },
           ],
         },

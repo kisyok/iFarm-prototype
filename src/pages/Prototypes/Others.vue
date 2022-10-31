@@ -254,7 +254,7 @@
         ],
         search: "",
         editDialog: false,
-        itemInEdit: {id: null, date: null, field: null, row: null},
+        itemInEdit: {id: null, date: null, remarks: null, field: null, row: null},
         addDialog: false,
         numOfRow: 1,
       };

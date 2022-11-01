@@ -62,6 +62,7 @@
               itemInEdit = item;
               editDialog = true;
             "
+            v-if="item.edit"
           >
             mdi-pencil
           </v-icon>
@@ -84,18 +85,21 @@
                     v-model="itemInEdit.date"
                     label="Date"
                     prepend-icon="mdi-calendar-blank"
+                    :rules="requiredRules"
                   ></v-text-field>
                 </v-col>
                 <v-col cols="6" sm="4">
                   <v-text-field
                     v-model="itemInEdit.field"
                     label="Field Number"
+                    :rules="requiredRules"
                   ></v-text-field>
                 </v-col>
                 <v-col cols="6" sm="4">
                   <v-text-field
                     v-model="itemInEdit.row"
                     label="Row Number"
+                    :rules="requiredRules"
                   ></v-text-field>
                 </v-col>
               </v-row>
@@ -147,18 +151,21 @@
                     v-model="itemInEdit.date"
                     label="Date"
                     prepend-icon="mdi-calendar-blank"
+                    :rules="requiredRules"
                   ></v-text-field>
                 </v-col>
                 <v-col cols="6" sm="4">
                   <v-text-field
                     v-model="itemInEdit.field"
                     label="Field Number"
+                    :rules="requiredRules"
                   ></v-text-field>
                 </v-col>
                 <v-col cols="6" sm="4">
                   <v-text-field
                     v-model="itemInEdit.row"
                     label="Row Number"
+                    :rules="requiredRules"
                   ></v-text-field>
                 </v-col>
               </v-row>
@@ -213,33 +220,38 @@ export default {
       listItems: [
         {
           id: 1,
-          date: "28/10/2022",
+          date: "28/09/2022",
           field: "1",
           row: "1",
+          edit: false,
         },
         {
           id: 2,
-          date: "28/10/2022",
+          date: "28/09/2022",
           field: "2",
           row: "2",
+          edit: false,
         },
         {
           id: 3,
           date: "28/10/2022",
           field: "3",
           row: "3",
+          edit: true,
         },
         {
           id: 4,
           date: "29/10/2022",
           field: "4",
           row: "4",
+          edit: true,
         },
         {
           id: 5,
           date: "29/10/2022",
           field: "5",
           row: "5",
+          edit: true,
         },
       ],
       search: "",
@@ -249,6 +261,7 @@ export default {
       numOfRow: 1,
       sortBy: "date",
       sortDesc: true,
+      requiredRules: [(v) => !!v || "This field is required"],
     };
   },
 };

@@ -73,7 +73,7 @@
     <v-dialog v-model="editDialog">
       <v-card>
         <v-toolbar flat color="primary" dark class="d-flex justify-center">
-          <v-toolbar-title>Edit Activity</v-toolbar-title>
+          <v-toolbar-title>Edit Other Activity</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
           <v-container>

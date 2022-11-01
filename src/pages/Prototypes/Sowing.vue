@@ -271,6 +271,11 @@
             sortable: true,
           },
           {
+            text: "Field",
+            value: "field",
+            sortable: true,
+          },
+          {
             text: "Row",
             value: "row",
             sortable: true,

@@ -52,6 +52,8 @@
         multi-sort
         show-select
         :single-select="false"
+        :sort-by.sync="sortBy"
+        :sort-desc.sync="sortDesc"
         :footer-props="{
           showFirstLastPage: true,
           firstIcon: 'mdi-arrow-collapse-left',
@@ -338,7 +340,9 @@ export default {
       numOfRow: 1,
       unitType: "kg",
       plantsList: ["Durian", "Rambutan", "Mango", "Grapes", "Eggplant"],
-      typesOfUnit: ["g", "kg"]
+      typesOfUnit: ["g", "kg"],
+      sortBy: "date",
+      sortDesc: true,
     };
   },
   methods: {

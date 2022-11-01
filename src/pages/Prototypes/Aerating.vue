@@ -9,13 +9,18 @@
           color="error"
           @click="openForm()"
           v-if="selected.length !== 0"
-          :class="{'btn-delete': $vuetify.breakpoint.xs}"
+          :class="{ 'btn-delete': $vuetify.breakpoint.xs }"
         >
           Delete Selected Rows
           <v-icon dark right> mdi-delete </v-icon>
         </v-btn>
         <v-spacer></v-spacer>
-        <v-btn large color="primary" @click="addDialog = true" :class="{'btn-add': $vuetify.breakpoint.xs}">
+        <v-btn
+          large
+          color="primary"
+          @click="addDialog = true"
+          :class="{ 'btn-add': $vuetify.breakpoint.xs }"
+        >
           Add New Activity
           <v-icon dark right> mdi-plus </v-icon>
         </v-btn>
@@ -38,6 +43,8 @@
         multi-sort
         show-select
         :single-select="false"
+        :sort-by.sync="sortBy"
+        :sort-desc.sync="sortDesc"
         :footer-props="{
           showFirstLastPage: true,
           firstIcon: 'mdi-arrow-collapse-left',
@@ -129,7 +136,12 @@
                   ></v-text-field>
                 </v-col>
               </v-row>
-              <v-row align="center" class="mt-2 form-row" v-for="n in 3" :key="n">
+              <v-row
+                align="center"
+                class="mt-2 form-row"
+                v-for="n in 3"
+                :key="n"
+              >
                 <v-col cols="12" sm="4">
                   <v-text-field
                     v-model="itemInEdit.date"
@@ -232,9 +244,11 @@ export default {
       ],
       search: "",
       editDialog: false,
-      itemInEdit: {id: null, date: null, field: null, row: null},
+      itemInEdit: { id: null, date: null, field: null, row: null },
       addDialog: false,
       numOfRow: 1,
+      sortBy: "date",
+      sortDesc: true,
     };
   },
 };

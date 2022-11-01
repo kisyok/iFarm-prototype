@@ -97,44 +97,69 @@ export default {
   data() {
     return {
       items: [
-        { title: "Dashboard", icon: "mdi-home", link: "/dashboard" },
-        {
-          title: "Activities",
-          icon: "mdi-weather-sunny",
-          model: false,
-          children: [
-            {
+      {
               title: "Aerating",
               icon: "mdi-rake",
-              link: 'aerating',
+              link: 'offline-aerating',
             },
             {
               title: "Sowing",
               icon: "mdi-seed",
-              link: 'sowing',
+              link: 'offline-sowing',
             },
             {
               title: "Fertilizing",
               icon: "mdi-diving-scuba-tank",
-              link: 'fertilizing',
+              link: 'offline-fertilizing',
             },
             {
               title: "Harvest",
               icon: "mdi-fruit-cherries",
-              link: 'harvest',
+              link: 'offline-harvest',
             },
             {
               title: "Others",
               icon: "mdi-dots-horizontal",
-              link: 'others',
+              link: 'offline-others',
             },
-          ],
-        },
-        {
-          title: "Statistics",
-          icon: "mdi-chart-bell-curve-cumulative",
-          link: "/notifications",
-        },
+        // { title: "Dashboard", icon: "mdi-home", link: "/dashboard" },
+        // {
+        //   title: "Activities",
+        //   icon: "mdi-weather-sunny",
+        //   model: false,
+        //   children: [
+        //     {
+        //       title: "Aerating",
+        //       icon: "mdi-rake",
+        //       link: 'aerating',
+        //     },
+        //     {
+        //       title: "Sowing",
+        //       icon: "mdi-seed",
+        //       link: 'sowing',
+        //     },
+        //     {
+        //       title: "Fertilizing",
+        //       icon: "mdi-diving-scuba-tank",
+        //       link: 'fertilizing',
+        //     },
+        //     {
+        //       title: "Harvest",
+        //       icon: "mdi-fruit-cherries",
+        //       link: 'harvest',
+        //     },
+        //     {
+        //       title: "Others",
+        //       icon: "mdi-dots-horizontal",
+        //       link: 'others',
+        //     },
+          // ],
+        // },
+        // {
+        //   title: "Statistics",
+        //   icon: "mdi-chart-bell-curve-cumulative",
+        //   link: "/notifications",
+        // },
       ],
       sidebarWidth: 240,
       sidebarMinWidth: 96,

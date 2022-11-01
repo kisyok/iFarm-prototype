@@ -2,7 +2,7 @@
     <div>
       <v-card class="my-3">
         <v-card-title>
-          Harvest
+          Sowing
           <v-spacer></v-spacer>
           <v-btn
             large
@@ -161,7 +161,7 @@
       <v-dialog v-model="addDialog">
         <v-card>
           <v-toolbar flat color="primary" dark class="d-flex justify-center">
-            <v-toolbar-title>Add New Harvest Activity</v-toolbar-title>
+            <v-toolbar-title>Add New Sowing Activity</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-container>

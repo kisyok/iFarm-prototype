@@ -14,7 +14,7 @@
             {{ link.text }}
           </v-btn>
         </div>
-        <div>
+        <!-- <div>
           <v-btn
             v-for="icon in icons"
             :key="icon.icon"
@@ -25,7 +25,7 @@
           >
             <v-icon size="24px">{{ icon.icon }}</v-icon>
           </v-btn>
-        </div>
+        </div> -->
       </v-row>
     </v-footer>
     <v-divider></v-divider>

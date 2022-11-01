@@ -11,7 +11,15 @@
     <v-toolbar-title>iFarm</v-toolbar-title>
     <v-spacer></v-spacer>
 
-    <v-menu max-width="280" offset-y bottom nudge-bottom="10" left>
+    <v-btn
+      class="ma-2 white--text"
+      outlined
+    >
+      Sync
+      <v-icon dark right> mdi-autorenew </v-icon>
+    </v-btn>
+
+    <!-- <v-menu max-width="280" offset-y bottom nudge-bottom="10" left>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           @click="messageBadge ? (messageBadge = !messageBadge) : ''"
@@ -169,7 +177,7 @@
           >
         </v-btn>
       </template>
-    </v-menu>
+    </v-menu> -->
   </v-app-bar>
 </template>
 

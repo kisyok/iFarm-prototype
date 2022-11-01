@@ -4,6 +4,7 @@ export default {
       secondary: "#FF5C93",
       error: "#EF5350",
       warning: "#FFC260",
+      warning2: "#FFB300",
       success: "#3CD4A0",
       info: "#9013FE",
       textColor: "#B9B9B9",

@@ -27,7 +27,8 @@
         <v-spacer></v-spacer>
         <v-btn
           large
-          color="warning"
+          dark
+          color="warning2"
           @click="changeUnit()"
           :class="{ 'btn-unit': $vuetify.breakpoint.xs }"
         >

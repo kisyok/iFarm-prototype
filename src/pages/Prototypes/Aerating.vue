@@ -7,7 +7,7 @@
         <v-btn
           large
           color="error"
-          @click="openForm()"
+          @click="deleteDialog = true"
           v-if="selected.length !== 0"
           :class="{ 'btn-delete': $vuetify.breakpoint.xs }"
         >
@@ -186,6 +186,31 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+    <!-- delete dialog -->
+    <v-dialog v-model="deleteDialog" max-width="340">
+      <v-card>
+        <v-toolbar flat color="warning" light class="d-flex justify-center">
+          <v-toolbar-title>Delete Activities</v-toolbar-title>
+        </v-toolbar>
+
+        <v-card-text class="mt-3">
+          Are you sure want to delete the selected rows??
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn color="blue darken-1" text @click="deleteDialog = false">
+            Cancel
+          </v-btn>
+
+          <v-btn color="blue darken-1" text @click="deleteDialog = false">
+            Delete
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -258,10 +283,11 @@ export default {
       editDialog: false,
       itemInEdit: { id: null, date: null, field: null, row: null },
       addDialog: false,
-      numOfRow: 1,
+      numOfRow: 3,
       sortBy: "date",
       sortDesc: true,
       requiredRules: [(v) => !!v || "This field is required"],
+      deleteDialog: false
     };
   },
 };

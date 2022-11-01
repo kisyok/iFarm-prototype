@@ -338,7 +338,7 @@
           row: null,
         },
         addDialog: false,
-        numOfRow: 1,
+        numOfRow: 3,
         unitType: "kg",
         fertilizersList: ["Bone Meal", "Rock Phospate", "Chicken Litter", "Compost", "Manure"],
         typesOfUnit: ["g", "kg"],

@@ -360,7 +360,7 @@
           row: null,
         },
         addDialog: false,
-        numOfRow: 1,
+        numOfRow: 3,
         unitType: "kg",
         plantsList: ["Durian", "Rambutan", "Mango", "Grapes", "Eggplant"],
         typesOfUnit: ["g", "kg"],

@@ -274,7 +274,7 @@ export default {
         row: null,
       },
       addDialog: false,
-      numOfRow: 1,
+      numOfRow: 3,
       sortBy: "date",
       sortDesc: true,
     };

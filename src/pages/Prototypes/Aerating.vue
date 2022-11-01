@@ -205,7 +205,7 @@ export default {
           sortable: true,
         },
         {
-          text: "Actions",
+          text: "Edit",
           value: "actions",
           sortable: false,
         },

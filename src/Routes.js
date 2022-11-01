@@ -12,11 +12,18 @@ import Charts from '@/pages/Charts/Charts'
 import Maps from '@/pages/Maps/Google'
 import Error from "@/pages/Error/Error";
 import Login from "@/pages/Login/Login";
-import Aerating from '@/pages/Prototypes/Aerating'
-import Sowing from '@/pages/Prototypes/Sowing'
-import Fertilizing from '@/pages/Prototypes/Fertilizing'
-import Harvest from '@/pages/Prototypes/Harvest'
-import Others from '@/pages/Prototypes/Others'
+
+import Aerating from '@/pages/Online/Aerating'
+import Sowing from '@/pages/Online/Sowing'
+import Fertilizing from '@/pages/Online/Fertilizing'
+import Harvest from '@/pages/Online/Harvest'
+import Others from '@/pages/Online/Others'
+
+import OffAerating from '@/pages/Offline/Aerating'
+import OffSowing from '@/pages/Offline/Sowing'
+import OffFertilizing from '@/pages/Offline/Fertilizing'
+import OffHarvest from '@/pages/Offline/Harvest'
+import OffOthers from '@/pages/Offline/Others'
 
 Vue.use(Router);
 
@@ -62,6 +69,31 @@ export default new Router({
         path: 'others',
         name: 'Others',
         component: Others,
+      },
+      {
+        path: 'offline-aerating',
+        name: 'OffAerating',
+        component: OffAerating,
+      },
+      {
+        path: 'offline-sowing',
+        name: 'OffSowing',
+        component: OffSowing,
+      },
+      {
+        path: 'offline-fertilizing',
+        name: 'OffFertilizing',
+        component: OffFertilizing,
+      },
+      {
+        path: 'offline-harvest',
+        name: 'OffHarvest',
+        component: OffHarvest,
+      },
+      {
+        path: 'offline-others',
+        name: 'OffOthers',
+        component: OffOthers,
       },
       {
         path: 'tables',

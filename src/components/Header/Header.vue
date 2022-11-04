@@ -154,7 +154,7 @@
       </v-list>
     </v-menu>
 
-    <v-menu max-width="280" offset-y bottom nudge-bottom="10" left v-if="this.online">
+    <v-menu min-width="100" offset-y bottom left nudge-bottom="10" v-if="this.online">
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           v-bind="attrs"
@@ -169,6 +169,18 @@
           >
         </v-btn>
       </template>
+      <v-list>
+        <v-list-item-group color="primary">
+          <v-list-item v-for="(item, i) in language" :key="i">
+            <v-list-item-content>
+              <v-list-item-title
+                :color="config.light.textColor"
+                v-text="item"
+              ></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
     </v-menu>
   </v-app-bar>
 </template>
@@ -224,6 +236,9 @@ export default {
     account: [
       { text: "Profile", icon: "mdi-account", color: "textColor" },
       { text: "Settings", icon: "mdi-cog-outline", color: "textColor" },
+    ],
+    language: [
+      "Chinese", "Malay", "Tamil"
     ],
     notificationsBadge: true,
     messageBadge: true,

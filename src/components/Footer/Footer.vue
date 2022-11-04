@@ -14,7 +14,7 @@
             {{ link.text }}
           </v-btn>
         </div>
-        <!-- <div>
+        <div v-if="this.online">
           <v-btn
             v-for="icon in icons"
             :key="icon.icon"
@@ -25,7 +25,7 @@
           >
             <v-icon size="24px">{{ icon.icon }}</v-icon>
           </v-btn>
-        </div> -->
+        </div>
       </v-row>
     </v-footer>
     <v-divider></v-divider>
@@ -47,6 +47,7 @@ export default {
 
   data: () => ({
     config,
+    online: null,
     icons: [
       { icon: "mdi-facebook", link: "https://twitter.com/flatlogic/" },
       { icon: "mdi-twitter", link: "https://www.facebook.com/flatlogic" },
@@ -58,6 +59,9 @@ export default {
       { text: "FAQ", link: "https://flatlogic.com/blog" },
     ],
   }),
+  mounted() {
+    this.online = this.$store.state.online;
+  }
 };
 </script>
 

@@ -11,15 +11,7 @@
     <v-toolbar-title>iFarm</v-toolbar-title>
     <v-spacer></v-spacer>
 
-    <v-btn
-      class="ma-2 white--text"
-      outlined
-    >
-      Sync
-      <v-icon dark right> mdi-autorenew </v-icon>
-    </v-btn>
-
-    <!-- <v-menu max-width="280" offset-y bottom nudge-bottom="10" left>
+    <v-menu max-width="280" offset-y bottom nudge-bottom="10" left v-if="this.online">
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           @click="messageBadge ? (messageBadge = !messageBadge) : ''"
@@ -82,7 +74,7 @@
       </v-list>
     </v-menu>
 
-    <v-menu offset-y bottom nudge-bottom="10" left>
+    <v-menu offset-y bottom nudge-bottom="10" left v-if="this.online">
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           @click="
@@ -120,7 +112,7 @@
       </v-list>
     </v-menu>
 
-    <v-menu min-width="180" offset-y bottom left nudge-bottom="10">
+    <v-menu min-width="180" offset-y bottom left nudge-bottom="10" v-if="this.online">
       <template v-slot:activator="{ on, attrs }">
         <v-btn class="mr-0" icon v-bind="attrs" v-on="on">
           <v-icon style="font-size: 28px" :color="config.light.iconColor"
@@ -162,7 +154,7 @@
       </v-list>
     </v-menu>
 
-    <v-menu max-width="280" offset-y bottom nudge-bottom="10" left>
+    <v-menu max-width="280" offset-y bottom nudge-bottom="10" left v-if="this.online">
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           v-bind="attrs"
@@ -177,7 +169,7 @@
           >
         </v-btn>
       </template>
-    </v-menu> -->
+    </v-menu>
   </v-app-bar>
 </template>
 
@@ -189,6 +181,7 @@ export default {
   name: "Header",
   data: () => ({
     config,
+    online: null,
     searchCollapse: true,
     notifications: [
       {
@@ -250,6 +243,9 @@ export default {
       this.$router.push("/login");
     },
   },
+  mounted() {
+    this.online = this.$store.state.online;
+  }
 };
 </script>
 

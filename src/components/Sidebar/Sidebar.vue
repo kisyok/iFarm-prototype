@@ -11,7 +11,7 @@
     :class="{ 'drawer-mini': !DRAWER_STATE }"
   >
     <v-list>
-      <template v-for="(item, i) in items">
+      <template v-for="(item, i) in renderSidebar()">
         <v-row v-if="item.heading" :key="item.heading" align="center">
           <v-col cols="6" class="py-5">
             <span
@@ -96,70 +96,72 @@ export default {
   },
   data() {
     return {
-      items: [
-      {
+      onlineItems: [
+        { title: "Dashboard", icon: "mdi-home", link: "/dashboard" },
+        {
+          title: "Activities",
+          icon: "mdi-weather-sunny",
+          model: false,
+          children: [
+            {
               title: "Aerating",
               icon: "mdi-rake",
-              link: 'offline-aerating',
+              link: "aerating",
             },
             {
               title: "Sowing",
               icon: "mdi-seed",
-              link: 'offline-sowing',
+              link: "sowing",
             },
             {
               title: "Fertilizing",
               icon: "mdi-diving-scuba-tank",
-              link: 'offline-fertilizing',
+              link: "fertilizing",
             },
             {
               title: "Harvest",
               icon: "mdi-fruit-cherries",
-              link: 'offline-harvest',
+              link: "harvest",
             },
             {
               title: "Others",
               icon: "mdi-dots-horizontal",
-              link: 'offline-others',
+              link: "others",
             },
-        // { title: "Dashboard", icon: "mdi-home", link: "/dashboard" },
-        // {
-        //   title: "Activities",
-        //   icon: "mdi-weather-sunny",
-        //   model: false,
-        //   children: [
-        //     {
-        //       title: "Aerating",
-        //       icon: "mdi-rake",
-        //       link: 'aerating',
-        //     },
-        //     {
-        //       title: "Sowing",
-        //       icon: "mdi-seed",
-        //       link: 'sowing',
-        //     },
-        //     {
-        //       title: "Fertilizing",
-        //       icon: "mdi-diving-scuba-tank",
-        //       link: 'fertilizing',
-        //     },
-        //     {
-        //       title: "Harvest",
-        //       icon: "mdi-fruit-cherries",
-        //       link: 'harvest',
-        //     },
-        //     {
-        //       title: "Others",
-        //       icon: "mdi-dots-horizontal",
-        //       link: 'others',
-        //     },
-          // ],
-        // },
-        // {
-        //   title: "Statistics",
-        //   icon: "mdi-chart-bell-curve-cumulative",
-        //   link: "/notifications",
-        // },
+          ],
+        },
+        {
+          title: "Statistics",
+          icon: "mdi-chart-bell-curve-cumulative",
+          link: "/notifications",
+        },
+      ],
+      offlineItems: [
+        {
+          title: "Aerating",
+          icon: "mdi-rake",
+          link: "offline-aerating",
+        },
+        {
+          title: "Sowing",
+          icon: "mdi-seed",
+          link: "offline-sowing",
+        },
+        {
+          title: "Fertilizing",
+          icon: "mdi-diving-scuba-tank",
+          link: "offline-fertilizing",
+        },
+        {
+          title: "Harvest",
+          icon: "mdi-fruit-cherries",
+          link: "offline-harvest",
+        },
+        {
+          title: "Others",
+          icon: "mdi-dots-horizontal",
+          link: "offline-others",
+        },
       ],
       sidebarWidth: 240,
       sidebarMinWidth: 96,
@@ -179,6 +181,13 @@ export default {
   },
   methods: {
     ...mapActions(["TOGGLE_DRAWER"]),
+    renderSidebar() {
+      if (this.$store.state.online == true) {
+        return this.onlineItems;
+      } else {
+        return this.offlineItems;
+      }
+    },
   },
 };
 </script>

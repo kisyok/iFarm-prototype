@@ -8,7 +8,7 @@ export default new Vuex.Store({
   namespace: true,
   state: {
     drawer: true,
-    online: true,
+    online: false,
   },
   mutations: {
     toggleDrawer(state) {
